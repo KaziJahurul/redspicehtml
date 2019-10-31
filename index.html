@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME | RED SPICE HTML</title>
+    <link href="css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+        <div id="app">
+            
+            <div v-if="mainNav.isMainNav" class="main_nav">
+
+                <div class="burger">
+                    <img @click="clickNav" class="burger_icon" :src="mainNav.burgerImage" alt="menu burger">
+                </div>
+
+                <div 
+                :style="{ transform: 'translateX(' + mainNav.transformPercent + '%)' }" 
+                class="main_nav_container"
+                >
+
+                    <div class="nav_logo">
+                        <a href="#">
+                            <img class="nav_logo_img" :src="siteInfo.siteLogo" alt="Red Spice Restaurent">
+                        </a>
+                    </div>
+    
+                    <ul v-if="mainNav.navItems.length > 0" class="primary_nav">
+                        <li 
+                            v-for="(item, index) in mainNav.navItems"
+                            :class="[(index === 0) ? 'current_page' : '']"
+                            :key="index"
+                        >
+                            <a :href="item.itemUrl"> {{ item.itemText }} </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div> <!-- /.main_nav -->
+
+            <div class="site_wrapper home">
+                <div class="site_content">
+            
+                    <div class="rs_logo">
+                        <a class="rs_logo_link" href="#">
+                            <img class="logo_img" :src="siteInfo.siteLogo" alt="Red Spice Restaurant">
+                        </a>
+                    </div>
+                    <div class="home_title">
+                        <h1 v-if="siteInfo.siteTitle">{{siteInfo.siteTitle}}</h1>
+                    </div>
+                    <div class="btn_container">
+                        <div class="btn_holder">
+                            <a class="order rs_btn" :href="orderBtn.url">{{orderBtn.text}}</a>
+                        </div>
+                        <div class="button_holder">
+                            <a class="booking rs_btn" :href="bookBtn.url">{{bookBtn.text}}</a>
+                        </div>
+                    </div>
+                    
+                </div>   
+                
+            </div>
+
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.site_wrapper {
+    &.home {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background: url(../img/line-work.png) center/cover no-repeat;
+        .site_content{
+            max-width: 650px;
+                width: 100%;
+            .rs_logo{
+                .rs_logo_link{
+                    width: 200px;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+            .home_title{
+                h1{
+                    font-weight: 400;
+                    text-align: center;
+                    color: #fff;
+                    margin: 0 0 50px;
+                    line-height: 1;
+                }
+            }
+            .btn_container{
+                text-align: center;
+                .btn_holder{
+                    margin-bottom: 20px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
